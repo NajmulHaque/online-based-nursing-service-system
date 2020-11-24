@@ -7,7 +7,9 @@
     <div class="row justify-content-center">
         <div class="col-md-9">
             <div class="card">
-                <div class="card-header"><h4 class="text-center">Registration Form</h4></div>
+                <div class="card-header">
+                    <h4 class="text-center">Registration Form</h4>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -55,16 +57,27 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="nid"
-                                class="col-md-4 col-form-label text-md-right">NID Number</label>
-
+                            <label for="role" class="col-md-4 col-form-label text-md-right">Role</label>
                             <div class="col-md-6">
-                                <input name="nid" type="text" placeholder=" Your NID Number" class="form-control" required
-                                    autocomplete="nid">
+                                <select class="form-control" name="role" selected="selected" id="myselect">
+                                    <option value="" disabled selected>Select</option>
+                                    @foreach ($roles as $role)
+                                        <option value="{{$role->id}}">{{$role->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="file_photo" class="col-md-4 col-form-label text-md-right">NID Card Photo:</label>
+                            <label for="nid" class="col-md-4 col-form-label text-md-right">NID Number</label>
+
+                            <div class="col-md-6">
+                                <input name="nid" type="text" placeholder=" Your NID Number" class="form-control"
+                                    required autocomplete="nid">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="file_photo" class="col-md-4 col-form-label text-md-right">NID Card
+                                Photo:</label>
                             <div class="col-md-6">
                                 <input type="file" name="nid_pic" id="file_photo" class="form-control" required>
                             </div>

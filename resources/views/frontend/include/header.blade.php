@@ -44,6 +44,7 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
+                        <a href="/home" class="pl-4">Profile</a>
                     </div>
                 </li>
                 @endguest

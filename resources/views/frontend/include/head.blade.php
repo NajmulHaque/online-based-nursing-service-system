@@ -18,7 +18,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/frontend/default.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/flexslider.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     @yield('styles')
 </head>
