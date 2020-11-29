@@ -41,7 +41,7 @@ Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->na
 /* Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify'); // v5.x */
 Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 // Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user', 'HomeController@index')->name('user.index');
 
 // Admin Panel
 Route::get('/admin/login', 'admin\LoginController@login');
