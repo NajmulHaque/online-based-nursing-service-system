@@ -5,7 +5,7 @@
     @include('frontend.include.topbar')
     <div id="app">
         @include('frontend.include.header')
-        <main class="">
+        <main class="body">
             @yield('content')
         </main>
     </div>

@@ -10,4 +10,8 @@ class PageController extends Controller
     {
         return view('frontend.landing');
     }
+    public function circular()
+    {
+        return view('frontend.circular-feed');
+    }
 }

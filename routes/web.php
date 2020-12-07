@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PageController@index')->name('enurse.index');
+Route::get('/circular', 'PageController@circular')->name('enurse.circular');
 
 
 // Authentication Routes...

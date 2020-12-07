@@ -211,7 +211,8 @@ table td{
         <div class="d-flex flex-md-row align-items-center">
             <div class="p-md-2">
                 <img src="{{asset('images/frontend/landing/customer2.jpg')}}" alt="" class="rounded-circle" id="profile"><br>
-                <span>&#9734; &#9734; &#9734; &#9734; &#9734;</span>
+                <span class="mb-3">&#9734; &#9734; &#9734; &#9734; &#9734;</span><br>
+                <a href="#" class="btn btn-info" style="width: 90px;margin-top: 2%">Hire</a>
             </div>
             <div class="p-md-2 p-1" id="info">
                 <h5 style="font-weight: 900;" class="text-success">{{$user->name}}</h5>
