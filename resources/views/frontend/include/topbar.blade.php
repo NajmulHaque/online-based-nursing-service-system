@@ -2,14 +2,13 @@
     <div class="container">
         <div class="top1 clearfix">
             <div class="location1_wrapper">
-                <div class="location1 fa1"><i class="fa fa-map-marker"></i><span>8901 Marmora Road, Glasgow, D04
-                        89GR.</span></div>
+                <div class="location1 fa1"><i class="fa fa-map-marker"></i><span>street 31, Dhaka, Bangladesh</span></div>
             </div>
             <div class="phone1_wrapper">
-                <div class="phone1 fa1"><i class="fa fa-phone"></i><span>1-800-123-1234</span></div>
+                <div class="phone1 fa1"><i class="fa fa-phone"></i><span>018027643</span></div>
             </div>
             <div class="mail1_wrapper">
-                <div class="mail1 fa1"><i class="fa fa-envelope"></i><span><a href="#">example@website.com</a></span>
+                <div class="mail1 fa1"><i class="fa fa-envelope"></i><span><a style="text-decoration: none" href="#">supporteNurse@gmail.com</a></span>
                 </div>
             </div>
 

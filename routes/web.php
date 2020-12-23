@@ -15,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PageController@index')->name('enurse.index');
 Route::get('/circular', 'PageController@circular')->name('enurse.circular');
+Route::get('/contact','PageController@contact')->name('eVendor.contact');
+Route::get('/about','PageController@about')->name('eVendor.about');
+Route::get('/nurse-dashboard/{id}','PageController@nurseProfile')->name('eVendor.nurse_dashboard');
+Route::get('/nurse/hired/{id}','HomeController@nurseHire')->name('nurse.hired');
+Route::get('/nurse/user-request/{id}', 'HomeController@userNurseRequest')->name('user_nurse_request');
+Route::get('/nurse/user-request-accept/{id}', 'HomeController@userRequestAccept')->name('nurse_request_accept');
 
 
 // Authentication Routes...
@@ -45,4 +51,18 @@ Route::get('email/resend', 'Auth\VerificationController@resend')->name('verifica
 Route::get('/user', 'HomeController@index')->name('user.index');
 
 // Admin Panel
-Route::get('/admin/login', 'admin\LoginController@login');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/approval-pending','admin\RequestController@approvalPending')->name('approval');
+    Route::middleware(['approved'])->group(function (){
+        Route::get('/approved-request','admin\RequestController@approved')->name('approved');
+    });
+    Route::middleware(['admin'])->group(function () {
+        Route::get('/admin/dashboard','admin\RequestController@index')->name('admin');
+        Route::get('/admin/nurse-request-list', 'admin\RequestController@nurseRequestList')->name('nurse_request');
+        Route::get('/admin/user-request-list', 'admin\RequestController@userRequestList')->name('user_request');
+        Route::get('/admin/request-approved/{id}', 'admin\RequestController@adminRequestApprove')->name('request.approve');
+    });
+});
+Route::get('/admin/login', function () { return view('admin.auth.login'); });
+Route::post('/admin/login', 'admin\auth\LoginController@login')->name('admin.login');
+Route::post('/admin/logout', 'admin\auth\LoginController@logout')->name('admin.logout');

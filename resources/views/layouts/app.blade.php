@@ -3,11 +3,9 @@
 @include('frontend.include.head')
 <body>
     @include('frontend.include.topbar')
+    @include('frontend.include.header')
     <div id="app">
-        @include('frontend.include.header')
-        <main class="body">
-            @yield('content')
-        </main>
+        @yield('content')
     </div>
     @include('frontend.include.footer')
     @include('frontend.include.scripts')

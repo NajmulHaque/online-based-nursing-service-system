@@ -1,10 +1,11 @@
 @extends('layouts.app')
-@section('title','Home')
+@section('title','eVendor | Home')
 @section('styles')
 <style>
     ul.navbar-nav.ml-auto {
         float: right;
     }
+    a{ text-decoration: none !important;}
 </style>
 <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/css/font-awesome.css') }}" rel="stylesheet">
@@ -37,26 +38,13 @@
                 <div class="title">In-Home Health Care</div>
                 <div class="content">
                     <p>
-                        Online nursing service system is an online nurse hire and medical tips facilities service system. Basically this idea is about helping the unemployed nurse and some people who are looking for private nurse service. 
+                        Online nursing service system is an online nurse hire and medical tips facilities service
+                        system. Basically this idea is about helping the unemployed nurse and some people who are
+                        looking for private nurse service.
                     </p>
                     <a href="#" class="btn-default btn1">request care now</a>
                 </div>
             </div>
-
-            <div id="free">
-                <div class="container">
-                    <div class="free_inner">
-                        <div class="free">
-                            <div class="txt1">call us</div>
-                            <div class="txt2">1-800-123-1234</div>
-                            <div class="txt3"><span>or</span></div>
-                            <div class="txt4"><a href="#" class="btn-default btn2">email us</a></div>
-                            <div class="txt5">free consultation</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 
@@ -75,7 +63,13 @@
                     </div>
                     <div class="col-sm-8">
                         <div class="caption minheight1">
-                            Online nursing service system is an online nurse hire and medical tips facilities service system. Basically this idea is about helping the unemployed nurse and some people who are looking for private nurse service. We know that many patients have serious diseases who badly need medical assistance. In fact many nurses are unable to search for a job just like a man and many of them need online support to get a job. Even though we know in our country there’s no online support agency to help them.  That’s one of the major reasons to work on this problem and make a system to solve this problem.  
+                            Online nursing service system is an online nurse hire and medical tips facilities service
+                            system. Basically this idea is about helping the unemployed nurse and some people who are
+                            looking for private nurse service. We know that many patients have serious diseases who
+                            badly need medical assistance. In fact many nurses are unable to search for a job just like
+                            a man and many of them need online support to get a job. Even though we know in our country
+                            there’s no online support agency to help them. That’s one of the major reasons to work on
+                            this problem and make a system to solve this problem.
                         </div>
                     </div>
                 </div>
@@ -134,29 +128,16 @@
 
                     <div class="row">
                         <div class="col-sm-4">
-                            <p>Online nursing service system is an online nurse hire and medical tips facilities service system. Basically this idea is about helping the unemployed nurse and some people who are looking for private nurse service. We know that many patients have serious diseases who badly need medical assistance. In fact many nurses are unable to search for a job just like a man and many of them need online support to get a job. Even though we know in our country there’s no online support agency to help them.  That’s one of the major reasons to work on this problem and make a system to solve this problem. </p>
+                            <p>Online nursing service system is an online nurse hire and medical tips facilities service
+                                system. Basically this idea is about helping the unemployed nurse and some people who
+                                are looking for private nurse service. We know that many patients have serious diseases
+                                who badly need medical assistance. </p>
                         </div>
                         <div class="col-sm-4">
-                            <ul class="ul1">
-                                <li><a href="#">Phasellus at pellentesque augue</a></li>
-                                <li><a href="#">Proin aliquet lorem non nunc dapibus viverra.</a></li>
-                                <li><a href="#">Ut ultrices non dolor eu consectetur</a></li>
-                                <li><a href="#">Aliquam vel posuere eros</a></li>
-                                <li><a href="#">Semper posuere leo</a></li>
-                                <li><a href="#">Vestibulum efficitur diam ut nulla</a></li>
-                                <li><a href="#">Egestas malesuada</a></li>
-                            </ul>
+                            <p>Some people who are looking for private nurse service. That’s one of the major reasons to work on this problem and make a system to solve this problem.</p>
                         </div>
                         <div class="col-sm-4">
-                            <ul class="ul1">
-                                <li><a href="#">Phasellus at pellentesque augue</a></li>
-                                <li><a href="#">Proin aliquet lorem non nunc dapibus viverra.</a></li>
-                                <li><a href="#">Ut ultrices non dolor eu consectetur</a></li>
-                                <li><a href="#">Aliquam vel posuere eros</a></li>
-                                <li><a href="#">Semper posuere leo</a></li>
-                                <li><a href="#">Vestibulum efficitur diam ut nulla</a></li>
-                                <li><a href="#">Egestas malesuada</a></li>
-                            </ul>
+                           <p>Even though we know in our country there’s no online support agency to help them. That’s one of the major reasons to work on this problem and make a system to solve this problem.</p>
                         </div>
                     </div>
 
@@ -232,7 +213,8 @@
                             <div class="thumb1">
                                 <div class="thumbnail clearfix">
                                     <figure class="">
-                                        <img src="{{ asset('images/frontend/landing/home01.png') }}" alt="" class="img-responsive">
+                                        <img src="{{ asset('images/frontend/landing/home01.png') }}" alt=""
+                                            class="img-responsive">
                                     </figure>
                                     <div class="caption">
                                         <div class="title2">Looking for a good job?</div>
@@ -270,10 +252,13 @@
                 <div class="col-sm-4">
                     <div class="services1">
                         <a href="#">
-                            <figure><img src="{{ asset('images/frontend/landing/service1.jpg') }}" alt="" class="img-responsive"></figure>
+                            <figure><img src="{{ asset('images/frontend/landing/service1.jpg') }}" alt=""
+                                    class="img-responsive"></figure>
                             <span class="caption">
                                 <span class="txt1">24 Hours Service</span>
-                                <span class="txt2">Online nursing service system is an online nurse hire and medical tips facilities service system. Basically this idea is about helping the unemployed nurse.</span>
+                                <span class="txt2">Online nursing service system is an online nurse hire and medical
+                                    tips facilities service system. Basically this idea is about helping the unemployed
+                                    nurse.</span>
                             </span>
                         </a>
                     </div>
@@ -281,10 +266,13 @@
                 <div class="col-sm-4">
                     <div class="services1">
                         <a href="#">
-                            <figure><img src="{{ asset('images/frontend/landing/service2.jpg') }}" alt="" class="img-responsive"></figure>
+                            <figure><img src="{{ asset('images/frontend/landing/service2.jpg') }}" alt=""
+                                    class="img-responsive"></figure>
                             <span class="caption">
                                 <span class="txt1">Free Online Estimate</span>
-                                <span class="txt2">some people who are looking for private nurse service.  That’s one of the major reasons to work on this problem and make a system to solve this problem.  </span>
+                                <span class="txt2">Some people who are looking for private nurse service. That’s one of
+                                    the major reasons to work on this problem and make a system to solve this problem.
+                                </span>
                             </span>
                         </a>
                     </div>
@@ -292,262 +280,15 @@
                 <div class="col-sm-4">
                     <div class="services1">
                         <a href="#">
-                            <figure><img src="{{ asset('images/frontend/landing/service3.jpg') }}" alt="" class="img-responsive"></figure>
+                            <figure><img src="{{ asset('images/frontend/landing/service3.jpg') }}" alt=""
+                                    class="img-responsive"></figure>
                             <span class="caption">
                                 <span class="txt1">In Home Health Care</span>
-                                <span class="txt2">mEven though we know in our country there’s no online support agency to help them.  That’s one of the major reasons to work on this problem and make a system to solve this problem. </span>
+                                <span class="txt2">Even though we know in our country there’s no online support agency
+                                    to help them. That’s one of the major reasons to work on this problem and make a
+                                    system to solve this problem. </span>
                             </span>
                         </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="parallax1" class="parallax">
-        <div class="bg1 parallax-bg"></div>
-        <div class="overlay"></div>
-        <div class="parallax-content">
-            <div class="container">
-
-                <div class="txt1">we have more experienced staff and do not outsource</div>
-                <div class="txt2">We provide the best medical team!</div>
-                <div class="txt3"><a href="#" class="btn-default btn1">request care now</a></div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="review_wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-
-                    <div class="title3">CUSTOMER REVIEWS</div>
-
-                    <div class="review1 clearfix">
-                        <div class="text">
-                            <div class="txt1">Professional and friendly care team! </div>
-                            <div class="txt2">We know that many patients have serious diseases who badly need medical assistance. In fact many nurses are unable to search for a job just like a man and many of them need online support to get a job. Even though we know in our country there’s no online support agency to help them. </div>
-                        </div>
-                        <div class="author">
-                            <figure><img src="{{ asset('images/frontend/landing/customer1.jpg') }}" alt="" class="img-responsive"></figure>
-                            <div class="name"><strong>Connor Walker</strong> - Customer</div>
-                        </div>
-                    </div>
-
-                    <div class="hl1"></div>
-
-                    <div class="review1 clearfix">
-                        <div class="text">
-                            <div class="txt1">Professional and friendly care team! </div>
-                            <div class="txt2">Even though we know in our country there’s no online support agency to help them.  That’s one of the major reasons to work on this problem and make a system to solve this problem.</div>
-                        </div>
-                        <div class="author">
-                            <figure><img src="{{ asset('images/frontend/landing/customer2.jpg') }}" alt="" class="img-responsive"></figure>
-                            <div class="name"><strong>Alexa Smith</strong> - Customer</div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-sm-6">
-
-                    <div class="quote_wrapper">
-
-                        <div class="title4">GET A QUICK <span>QUOTE</span></div>
-                        <div class="title5">contact us for more information</div>
-
-                        <br>
-
-                        <div id="note"></div>
-                        <div id="fields">
-                            <form id="ajax-contact-form" class="form-horizontal" action="javascript:alert('success!');">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="inputName">First Name</label>
-                                            <input type="text" class="form-control" id="inputName" name="name"
-                                                value="First Name" onBlur="if(this.value=='') this.value='First Name'"
-                                                onFocus="if(this.value =='First Name' ) this.value=''">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="inputLName">Last Name</label>
-                                            <input type="text" class="form-control" id="inputLName" name="lname"
-                                                value="Last Name" onBlur="if(this.value=='') this.value='Last Name'"
-                                                onFocus="if(this.value =='Last Name' ) this.value=''">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="inputEmail">Email</label>
-                                            <input type="text" class="form-control" id="inputEmail" name="email"
-                                                value="E-mail address"
-                                                onBlur="if(this.value=='') this.value='E-mail address'"
-                                                onFocus="if(this.value =='E-mail address' ) this.value=''">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="inputPhone">Phone</label>
-                                            <input type="text" class="form-control" id="inputPhone" name="phone"
-                                                value="Phone" onBlur="if(this.value=='') this.value='Phone'"
-                                                onFocus="if(this.value =='Phone' ) this.value=''">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="inputMessage">Your Message</label>
-                                            <textarea class="form-control" rows="5" id="inputMessage" name="content"
-                                                onBlur="if(this.value=='') this.value='Message'"
-                                                onFocus="if(this.value =='Message' ) this.value=''">Message</textarea>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <button type="submit" class="btn-default btn-cf-submit">Submit</button>
-                            </form>
-                        </div>
-
-
-
-
-                    </div>
-
-
-
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-
-    <div id="banner_wrapper">
-        <div id="banner_inner">
-            <div class="">
-                <div id="banner">
-                    <div class="container">
-                        <a class="banner_prev" href="#"></a>
-                        <a class="banner_next" href="#"></a>
-                        <div class="carousel-box">
-                            <div class="inner">
-                                <div class="carousel main">
-                                    <ul>
-                                        <li>
-                                            <div class="banner">
-                                                <div class="banner_inner">
-                                                    <a href="#">
-                                                        <figure><img src="{{ asset('images/frontend/landing/partner1.jpg') }}" alt=""
-                                                                class="img-responsive"><em></em></figure>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="banner">
-                                                <div class="banner_inner">
-                                                    <a href="#">
-                                                        <figure><img src="{{ asset('images/frontend/landing/partner2.jpg') }}" alt=""
-                                                                class="img-responsive"><em></em></figure>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="banner">
-                                                <div class="banner_inner">
-                                                    <a href="#">
-                                                        <figure><img src="{{ asset('images/frontend/landing/partner3.jpg') }}" alt=""
-                                                                class="img-responsive"><em></em></figure>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="banner">
-                                                <div class="banner_inner">
-                                                    <a href="#">
-                                                        <figure><img src="{{ asset('images/frontend/landing/partner4.jpg') }}.jpg" alt=""
-                                                                class="img-responsive"><em></em></figure>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="banner">
-                                                <div class="banner_inner">
-                                                    <a href="#">
-                                                        <figure><img src="images/partner5.jpg" alt=""
-                                                                class="img-responsive"><em></em></figure>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li>
-                                            <div class="banner">
-                                                <div class="banner_inner">
-                                                    <a href="#">
-                                                        <figure><img src="images/partner1.jpg" alt=""
-                                                                class="img-responsive"><em></em></figure>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="banner">
-                                                <div class="banner_inner">
-                                                    <a href="#">
-                                                        <figure><img src="images/partner2.jpg" alt=""
-                                                                class="img-responsive"><em></em></figure>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="banner">
-                                                <div class="banner_inner">
-                                                    <a href="#">
-                                                        <figure><img src="images/partner3.jpg" alt=""
-                                                                class="img-responsive"><em></em></figure>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="banner">
-                                                <div class="banner_inner">
-                                                    <a href="#">
-                                                        <figure><img src="images/partner4.jpg" alt=""
-                                                                class="img-responsive"><em></em></figure>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="banner">
-                                                <div class="banner_inner">
-                                                    <a href="#">
-                                                        <figure><img src="images/partner5.jpg" alt=""
-                                                                class="img-responsive"><em></em></figure>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-
-
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -556,7 +297,7 @@
 </div>
 @endsection
 @section('scripts')
-<script src="{{ asset('assets/js/jquery.js')}}")></script>
+<script src="{{ asset('assets/js/jquery.js')}}" )></script>
 <script src="{{ asset('assets/js/jquery-migrate-1.2.1.min.js')}}"></script>
 <script src="{{ asset('assets/js/jquery.easing.1.3.js') }}"></script>
 <script src="{{ asset('assets/js/superfish.js') }}"></script>

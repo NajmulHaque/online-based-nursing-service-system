@@ -203,41 +203,34 @@ table td{
     font-weight: bold;
     letter-spacing: 2px;
 }
-
-        
-.request-count { 
-            position: relative; 
-            top: -46px; 
-            left: 20px; 
-            color: #ffffff;
-            background-color: red;
-            border: 1px solid red; 
-            border-radius: 50%; 
-        } 
+.navbar{ margin-bottom: 0}
 </style>
 @endsection
 @section('content')
-<div class="container bg-white">
+<div class="container-fluid bg-white pt-5">
     <div class="d-flex flex-md-row justify-content-around align-items-center">
         <div class="d-flex flex-md-row align-items-center">
             <div class="p-md-2">
-                <img src="{{asset('images/frontend/landing/customer2.jpg')}}" alt="" class="rounded-circle" id="profile"><br>
-                <span class="mb-3">&#9734; &#9734; &#9734; &#9734; &#9734;</span><br>
-                <a href="#" class="btn btn-info" style="width: 90px;margin-top: 2%">Hire</a>
+                <img src="{{asset('images/frontend/landing/customer2.jpg')}}" alt="" class="rounded-circle" id="profile">
+                <br><a href="#" class="btn btn-info mt-2" style="width: 90px;margin-top: 2%">Hire</a>
             </div>
             <div class="p-md-2 p-1" id="info">
-                <h5 style="font-weight: 900;" class="text-success">{{$user->name}}</h5>
+                <h5 style="font-weight: 900;" class="text-success">{{$nurse->name}}</h5>
                 <div class="text-muted">Nurse</div>
             </div>
         </div>
         {{-- <div class="d-flex flex-column" id="info">
-            <div class="p-md-1 text-muted"> <span class="fa fa-envelope p-1 rounded-circle"></span> {{$user->name}}@gmail.com
+            <div class="p-md-1 text-muted"> <span class="fa fa-envelope p-1 rounded-circle"></span> {{$nurse->name}}@gmail.com
             </div>
             <div class="p-md-1 pt-sm-1 text-muted"> <span class="fa fa-phone bg-light p-1 rounded-circle"></span>
                 +880170000000</div>
         </div> --}}
         <div class="rounded p-lg-2 p-1" id="blue-background">
             <div class="d-flex flex-md-row align-items-center">
+                <div class="d-flex flex-column align-items-center px-lg-3 px-md-2 px-1" id="border-right">
+                    <p class="h4">4 years</p>
+                    <div class="text-muted" id="count">Give Review</div>
+                </div>
                 <div class="d-flex flex-column align-items-center px-lg-3 px-md-2 px-1" id="border-right">
                     <p class="h4">4 years</p>
                     <div class="text-muted" id="count">Personal Experience</div>
@@ -255,12 +248,9 @@ table td{
                     <div class="text-muted" id="count">Job Category</div>
                 </div>
                 <div class="d-flex flex-column align-items-center px-lg-4 px-md-2 px-sm-1 px-2">
-                    @foreach ($userId as $nurse)
-                        <a href="{{ route('user_nurse_request',$nurse->user_id) }}" class="btn">
-                            <i class="fa fa-envelope pl-2" style="font-size: 25px"></i> 
-                        </a> 
-                    @endforeach
-                   <span class="badge badge-light request-count">{{$nurseStatusCount}}</span> 
+                    <a href="https://meet.google.com/asc-ciue-yeg" target="_blank" class="btn">
+                        <i class="fa fa-video-camera pl-2" style="font-size: 35px;color: Red;border: 2px solid lightgray;padding: 5px"></i> 
+                    </a>  
                 </div>
             </div>
         </div>
@@ -283,25 +273,25 @@ table td{
                         <tbody>
                             <tr>
                                 <td>User Id</td>
-                                <td>{{$user->id}}</td>
+                                <td>{{$nurse->id}}</td>
                             </tr>
                             <tr>
                                 <td>Name:</td>
-                                <td>{{$user->name}}</td>
+                                <td>{{$nurse->name}}</td>
                             </tr>
                             <tr>
                                 <td>Email</td>
-                                <td>{{$user->email}}</td>
+                                <td>{{$nurse->email}}</td>
                             </tr>
                             <tr>
                                 <td>Gender</td>
                                 <td>
-                                    {{$user->gender}}
+                                    {{$nurse->gender}}
                                 </td>
                             </tr>
                             <tr>
                                 <td>Approve Date</td>
-                                <td>{{$user->created_at}}</td>
+                                <td>{{$nurse->created_at}}</td>
                             </tr>
                         </tbody>
                     </table>

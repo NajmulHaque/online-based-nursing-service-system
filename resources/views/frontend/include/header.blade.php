@@ -15,9 +15,9 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="">About us</a></li>
-                <li class="nav-item"><a class="nav-link" href="">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="">Contact us</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('eVendor.about')}}">About us</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('enurse.circular')}}">Job Circular</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('eVendor.contact')}}">Contact us</a></li>
                 <!-- Authentication Links -->
                 @guest
                 <li class="nav-item">

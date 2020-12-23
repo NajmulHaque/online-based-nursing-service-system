@@ -2,90 +2,73 @@
 
 @section('styles')
 <style>
-    body{
+    body {
         background-color: ;
     }
+
     h1,
     h2,
-    h3,
     h4,
     h5,
     a {
         color: #333 !important;
     }
-    a{
+
+    a {
         text-decoration: none;
     }
-    .job-post{
-        background-color: #ffff; border: 1px solid lightgray; margin: 10px; padding: 10px; 
+
+    .job-post {
+        background-color: #ffff;
+        border: 1px solid lightgray;
+        margin: 10px;
+        padding: 10px;
     }
+
+    #request-headline h3 {
+        text-align: center;
+        box-shadow: 0 1px 7px 0;
+        padding: 10px;
+        font-size: 20px;
+        color: green;
+    }
+    .post-button a{ color: #fff !important}
 </style>
 @endsection
 @section('content')
-<h1 class="text-center">Job Circular Feed</h1>
-<div class="container-fluid pb-5">
-    <div class="row job-post">
-        <div class="col-md-6">
-            <div class="job-post-item-header align-items-center">
-                <span class="subadge">Partime</span>
-                <h2 class="mr-3 text-black"><a href="#">Amilisa Zenon</a></h2>
-            </div>
-            <div class="job-post-item-body d-block d-md-flex">
-                <div class="mr-3"><span class="fa fa-map-marker"></span> <span>Western City, UK</span></div>
-                <div><a href="#">Private Nurse</a></div>
-            </div>
-        </div>
-        <div class="col-md-3" style="padding-left: 50px">
-            <span>20 days</span>
-            <p class="rate">৳20000</p>
-        </div>
-        <div class="col-md-3">
-            <div class="pt-3">
-                <a href="" class="btn btn-primary btn-lg">Hire</a>
-            </div>
+<div class="container">
+    <div class="row" style="justify-content: center">
+        <div class="col-md-6 col-lg-6 p-5 text-success" id="request-headline">
+            <h3>Job Circular Feed</h3>
         </div>
     </div>
-    <div class="row job-post">
-        <div class="col-md-6">
-            <div class="job-post-item-header align-items-center">
-                <span class="subadge">Partime</span>
-                <h2 class="mr-3 text-black"><a href="#">Jebin Selon</a></h2>
-            </div>
-            <div class="job-post-item-body d-block d-md-flex">
-                <div class="mr-3"><span class="fa fa-map-marker"></span> <span>Western City, UK</span></div>
-                <div><a href="#">Private Nurse</a></div>
-            </div>
-        </div>
-        <div class="col-md-3" style="padding-left: 50px">
-            <span>20 days</span>
-            <p class="rate">৳20000</p>
-        </div>
-        <div class="col-md-3">
-            <div class="pt-3">
-                <a href="" class="btn btn-primary btn-lg">Hire</a>
-            </div>
-        </div>
-    </div>
-    <div class="row job-post">
-        <div class="col-md-6">
-            <div class="job-post-item-header align-items-center">
-                <span class="subadge">Partime</span>
-                <h2 class="mr-3 text-black"><a href="#">Kemaya Rago</a></h2>
-            </div>
-            <div class="job-post-item-body d-block d-md-flex">
-                <div class="mr-3"><span class="fa fa-map-marker"></span> <span>Western City, UK</span></div>
-                <div><a href="#">Private Nurse</a></div>
+</div>
+<div class="container pb-5">
+    <div class="row">
+        @forelse ($nurseDetails as $nurse)
+        <div class="col col-md-6">
+            <div class="row job-post">
+                <div class="col-md-9">
+                    <div>
+                        <span class="subadge">Partime</span>
+                        <h2 class="mr-3 text-black"><a href="{{ route('eVendor.nurse_dashboard',$nurse->id)}}">{{$nurse->name}}</a></h2>
+                    </div>
+                    <div>
+                        <div class="mr-3">
+                            <span class="fa fa-map-marker"></span> 
+                            <span>Bashundhara R/A, Dhaka</span>
+                            <span class="pl-3 text-primary">Private Nurse</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 post-button">
+                    <a href="{{ route('nurse.hired', $nurse->id) }}" type="button" class="btn btn-primary btn-lg mt-4">Hire</a>
+                </div>
             </div>
         </div>
-        <div class="col-md-3" style="padding-left: 50px">
-            <span>20 days</span>
-            <p class="rate">৳20000</p>
-        </div>
-        <div class="col-md-3">
-            <div class="pt-3">
-                <a href="" class="btn btn-primary btn-lg">Hire</a>
-            </div>
-        </div>
+        @empty
+            <div>No Nurse Found</div>
+        @endforelse
     </div>
 </div>
 @endsection
