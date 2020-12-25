@@ -1,17 +1,25 @@
 @extends('layouts.app')
+@section('title','eNurse | Nurse Request')
+@section('styles')
+    <style>
+        a{
+            text-decoration: none;
+        }
+    </style>
+@endsection
 
 @section('content')
     <div class="container py-5">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">
                         <div class="row">
                             <div class="col-md-6">
-                                <p class="text-left">Users List to Approve</p>
+                                <h5 class="text-left">Client to get Approval</h5>
                             </div>
                             <div class="col-md-6 text-right">
-                                <a href="/admin/dashboard" class=" btn btn-info">Back</a>
+                                <a href="/user" class=" btn btn-info">Back</a>
                             </div>
                         </div>
 
@@ -29,15 +37,22 @@
                             <tr>
                                 <th>Request Id</th>
                                 <th>Client ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                                <th>NID</th>
                                 <th>Status</th>
                                 <th></th>
                             </tr>
-                            @forelse ($userNurseRequests as $userNurseRequest)
+                            @forelse ($userNurseRequestDetails as $client)
                                 <tr>
-                                    <td>{{ $userNurseRequest->id }}</td>
-                                    <td>{{ $userNurseRequest->client_id }}</td>
-                                    <td>{{ $userNurseRequest->status }}</td>
-                                    <td><a href="{{ route('nurse_request_accept', $userNurseRequest->id)}}"
+                                    <td>{{ $client->request_id }}</td>
+                                    <td>{{ $client->id }}</td>
+                                    <td>{{ $client->email }}</td>
+                                    <td>{{ $client->gender }}</td>
+                                    <td>{{ $client->nid }}</td>
+                                    <td>{{ $client->status }}</td>
+                                    <td><a href="{{ route('nurse_request_accept', $client->request_id)}}"
                                            class="btn btn-primary btn-sm">Accept</a></td>
                                 </tr>
                             @empty

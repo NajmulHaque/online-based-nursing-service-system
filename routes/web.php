@@ -17,7 +17,7 @@ Route::get('/', 'PageController@index')->name('enurse.index');
 Route::get('/circular', 'PageController@circular')->name('enurse.circular');
 Route::get('/contact','PageController@contact')->name('eVendor.contact');
 Route::get('/about','PageController@about')->name('eVendor.about');
-Route::get('/nurse-dashboard/{id}','PageController@nurseProfile')->name('eVendor.nurse_dashboard');
+Route::get('/nurse-dashboard/{id}','PageController@nurseProfile')->name('eVendor.nurse_dashboard')->middleware('auth');
 Route::get('/nurse/hired/{id}','HomeController@nurseHire')->name('nurse.hired');
 Route::get('/nurse/user-request/{id}', 'HomeController@userNurseRequest')->name('user_nurse_request');
 Route::get('/nurse/user-request-accept/{id}', 'HomeController@userRequestAccept')->name('nurse_request_accept');

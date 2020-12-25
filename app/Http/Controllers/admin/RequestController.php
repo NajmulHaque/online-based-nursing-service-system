@@ -46,14 +46,19 @@ class RequestController extends Controller
     public function approved()
     {
         $id    =   auth()->user()->id;
-        $user    =   User::find($id);
+        $user    =   auth()->user();       
         if ($user->role_id == 1) {
             return view('frontend.user-profile')->with([
                 'user'   =>   $user,
             ]);
-        } else {
+        } else{
+            $nurseStatus   =   DB::table('nurses')->where(['user_id' => $id,'status' => 'Pending'])->select('status')->get();
+            $clientId   =   DB::table('nurses')->where('user_id', $id)->select('client_id')->get();
+            $nurseStatusCount    =   $nurseStatus->count(); 
             return view('frontend.nurse-profile')->with([
                 'user'   =>   $user,
+                'nurseStatusCount' => $nurseStatusCount,
+                'clientId' =>   $clientId,
             ]);
         }
     }

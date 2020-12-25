@@ -14,7 +14,9 @@ class PageController extends Controller
     }
     public function circular()
     {
-        $nurseDetails  =   User::where('role_id','=',2)->get();
+        $nurseDetails   =   User::join('nurses','nurses.user_id','users.id')
+            ->where(['users.role_id' => 2])
+            ->select('users.*','nurses.status')->get();
         return view('frontend.circular-feed')->with([
             'nurseDetails'  =>  $nurseDetails,
         ]);

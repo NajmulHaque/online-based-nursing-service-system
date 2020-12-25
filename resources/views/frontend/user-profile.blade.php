@@ -10,6 +10,9 @@
 <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
 @endsection
 @section('content')
+<div class="container-fluid" style="padding: 0">
+    <img width="100%" height="150px" src="{{asset('images/frontend/slider2.jpg')}}" alt="">
+</div>
 <div class="container" style="padding: 50px 0px">
     <div class="row justify-content-center">
         <div class="col-md-10">

@@ -2,6 +2,10 @@
 
 @section('styles')
 <style>
+        ul.navbar-nav.ml-auto {
+        float: right;
+    }
+
     body {
         background-color: ;
     }
@@ -12,16 +16,12 @@
     h5,
     a {
         color: #333 !important;
-    }
-
-    a {
         text-decoration: none;
     }
-
+    a:hover{ text-decoration: none !important}
     .job-post {
         background-color: #ffff;
         border: 1px solid lightgray;
-        margin: 10px;
         padding: 10px;
     }
 
@@ -34,6 +34,7 @@
     }
     .post-button a{ color: #fff !important}
 </style>
+<link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
 @endsection
 @section('content')
 <div class="container">
@@ -47,7 +48,7 @@
     <div class="row">
         @forelse ($nurseDetails as $nurse)
         <div class="col col-md-6">
-            <div class="row job-post">
+            <div class="row job-post mr-1 mb-3">
                 <div class="col-md-9">
                     <div>
                         <span class="subadge">Partime</span>
@@ -62,7 +63,13 @@
                     </div>
                 </div>
                 <div class="col-md-3 post-button">
-                    <a href="{{ route('nurse.hired', $nurse->id) }}" type="button" class="btn btn-primary btn-lg mt-4">Hire</a>
+                    @if ($nurse->status != NULL && $nurse->status == 'Pending')
+                        <a href="javascript::void()" type="button" class="btn btn-warning btn-lg mt-5">{{$nurse->status}}</a>
+                    @elseif($nurse->status == 'Hired')
+                        <a href="javascript:void()" type="button" class="btn btn-danger btn-lg mt-5">{{$nurse->status}}</a>
+                    @else
+                        <a href="{{ route('nurse.hired', $nurse->id) }}" type="button" class="btn btn-primary btn-lg mt-5">Hire</a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -73,5 +80,5 @@
 </div>
 @endsection
 @section('scripts')
-
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 @endsection

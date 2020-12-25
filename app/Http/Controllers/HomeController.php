@@ -38,36 +38,35 @@ class HomeController extends Controller
     public function index()
     {
         $id    =   auth()->user()->id;
-        $user    =   User::find($id);       
+        $user    =   auth()->user();       
         if ($user->role_id == 1) {
-            return view('user-profile')->with([
+            return view('frontend.user-profile')->with([
                 'user'   =>   $user,
             ]);
-        } else {
+        } else{
             $nurseStatus   =   DB::table('nurses')->where(['user_id' => $id,'status' => 'Pending'])->select('status')->get();
-            $userId   =   DB::table('nurses')->where('user_id', $id)->select('user_id')->get();
+            $clientId   =   DB::table('nurses')->where('user_id', $id)->select('client_id')->get();
             $nurseStatusCount    =   $nurseStatus->count(); 
-            // dd($clientId[0]->user_id);
             return view('frontend.nurse-profile')->with([
                 'user'   =>   $user,
                 'nurseStatusCount' => $nurseStatusCount,
-                'userId' =>   $userId,
+                'clientId' =>   $clientId,
             ]);
         }
     }
-    public function userNurseRequest($userId)
+    public function userNurseRequest($clientId)
     {
-        $userNurseRequests   =   DB::table('nurses')->where([
-            'user_id' => $userId,
-            'status'  => 'Pending'
-            ])->get();
-        return view('frontend.user-nurse-request',compact('userNurseRequests'));
+        $userNurseRequestDetails   =   User::join('nurses','nurses.client_id','users.id')->where([
+            'nurses.client_id' => $clientId,
+            'nurses.status'  => 'Pending'
+            ])->select('users.*','nurses.status','nurses.id as request_id')->get();
+        return view('frontend.user-nurse-request',compact('userNurseRequestDetails'));
     }
-    public function userRequestAccept($acceptId)
+    public function userRequestAccept($requestId)
     {
-        $nurserequestAcceptUpdate = DB::table('nurses')->where('id',$acceptId)
+        $nurserequestAcceptUpdate = DB::table('nurses')->where('id',$requestId)
         ->update([
-            'status' => 'Accept',
+            'status' => 'Hired',
             ]);  
         return redirect()->back()->with('message','You Accept Request successfully');
     }

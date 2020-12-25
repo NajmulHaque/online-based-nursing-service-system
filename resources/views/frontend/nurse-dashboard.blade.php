@@ -209,23 +209,15 @@ table td{
 @section('content')
 <div class="container-fluid bg-white pt-5">
     <div class="d-flex flex-md-row justify-content-around align-items-center">
-        <div class="d-flex flex-md-row align-items-center">
+        <div class="d-flex">
             <div class="p-md-2">
                 <img src="{{asset('images/frontend/landing/customer2.jpg')}}" alt="" class="rounded-circle" id="profile">
-                <br><a href="#" class="btn btn-info mt-2" style="width: 90px;margin-top: 2%">Hire</a>
-            </div>
-            <div class="p-md-2 p-1" id="info">
                 <h5 style="font-weight: 900;" class="text-success">{{$nurse->name}}</h5>
                 <div class="text-muted">Nurse</div>
             </div>
+            <div  class="p-md-4 hire" style="margin-top: 10%"><a href="#" class="btn btn-info mt-2" style="width: 90px;">Hire</a></div>
         </div>
-        {{-- <div class="d-flex flex-column" id="info">
-            <div class="p-md-1 text-muted"> <span class="fa fa-envelope p-1 rounded-circle"></span> {{$nurse->name}}@gmail.com
-            </div>
-            <div class="p-md-1 pt-sm-1 text-muted"> <span class="fa fa-phone bg-light p-1 rounded-circle"></span>
-                +880170000000</div>
-        </div> --}}
-        <div class="rounded p-lg-2 p-1" id="blue-background">
+        <div class="rounded p-lg-2" id="blue-background">
             <div class="d-flex flex-md-row align-items-center">
                 <div class="d-flex flex-column align-items-center px-lg-3 px-md-2 px-1" id="border-right">
                     <p class="h4">4 years</p>
