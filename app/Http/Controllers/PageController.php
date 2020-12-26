@@ -29,14 +29,19 @@ class PageController extends Controller
     {
         return view('frontend.about');
     }
-    public function nurseProfile($nurseId)
+    public function nurseProfile($userId)
     {
-        $nurse    =   User::find($nurseId);
-        $nurseStatus    =   DB::table('nurses')->where('user_id',$nurseId) ->get();
-        $nurseStatusCount   =   $nurseStatus->count();
+        $userVideoRequestDetails   =   DB::table('nurses')->where([
+            'user_id'   => $userId,
+            'nurses.client_id' => auth()->user()->id,
+            'nurses.video_Request'  => 'requested'
+            ])->select('nurses.meet_link')->get();
+        $nurseDetails   =   User::join('nurses','nurses.user_id','users.id')
+            ->where(['users.id' => $userId])
+            ->select('users.*','nurses.status','nurses.client_id')->get();
         return view('frontend.nurse-dashboard')->with([
-            'nurse' => $nurse,
-            'nurseStatusCount'   =>  $nurseStatusCount,
+            'nurseDetails' => $nurseDetails,
+            'userVideoRequestDetails' => $userVideoRequestDetails,
         ]);
     }
 }

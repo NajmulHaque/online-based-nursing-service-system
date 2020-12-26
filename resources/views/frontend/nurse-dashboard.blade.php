@@ -204,25 +204,40 @@ table td{
     letter-spacing: 2px;
 }
 .navbar{ margin-bottom: 0}
+.nurse-review{ border: 1px solid lightgray; padding: 10px 20px}
+.nurse-review i {
+    font-size: 25px;
+    color: red;
+}
 </style>
 @endsection
 @section('content')
+@forelse ($nurseDetails as $nurse)
 <div class="container-fluid bg-white pt-5">
     <div class="d-flex flex-md-row justify-content-around align-items-center">
-        <div class="d-flex">
-            <div class="p-md-2">
+        <div class="nurse-details">
                 <img src="{{asset('images/frontend/landing/customer2.jpg')}}" alt="" class="rounded-circle" id="profile">
                 <h5 style="font-weight: 900;" class="text-success">{{$nurse->name}}</h5>
                 <div class="text-muted">Nurse</div>
-            </div>
-            <div  class="p-md-4 hire" style="margin-top: 10%"><a href="#" class="btn btn-info mt-2" style="width: 90px;">Hire</a></div>
+                <div>
+                    @if ($nurse->status != Null)
+                        <a href="javascript:void()" class="btn btn-info mt-2" style="width: 90px;">{{$nurse->status}}</a>
+                    @else
+                        <a href="{{ route('nurse.hired', $nurse->id) }}" class="btn btn-info mt-2" style="width: 90px;">Hire</a>
+                    @endif
+                </div>
+        </div>
+        <div class="nurse-review">
+            <p>Your Rating</p>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i><br>
+            <a href="#" type="button" class="btn btn-info mt-3">Submit</a>
         </div>
         <div class="rounded p-lg-2" id="blue-background">
             <div class="d-flex flex-md-row align-items-center">
-                <div class="d-flex flex-column align-items-center px-lg-3 px-md-2 px-1" id="border-right">
-                    <p class="h4">4 years</p>
-                    <div class="text-muted" id="count">Give Review</div>
-                </div>
                 <div class="d-flex flex-column align-items-center px-lg-3 px-md-2 px-1" id="border-right">
                     <p class="h4">4 years</p>
                     <div class="text-muted" id="count">Personal Experience</div>
@@ -240,15 +255,36 @@ table td{
                     <div class="text-muted" id="count">Job Category</div>
                 </div>
                 <div class="d-flex flex-column align-items-center px-lg-4 px-md-2 px-sm-1 px-2">
-                    <a href="https://meet.google.com/asc-ciue-yeg" target="_blank" class="btn">
-                        <i class="fa fa-video-camera pl-2" style="font-size: 35px;color: Red;border: 2px solid lightgray;padding: 5px"></i> 
-                    </a>  
+                      @if ($nurse->status == 'Hired' or $nurse->status == 'Pending' and auth()->user()->id == $nurse->client_id)
+                        <a href="{{route('user_video_request',$nurse->id)}}" class="btn">
+                            <i class="fa fa-video-camera pl-2" style="font-size: 35px;color: Red;border: 2px solid lightgray;padding: 5px"></i> 
+                        </a>  
+                      @endif
+                      {{-- https://meet.google.com/asc-ciue-yeg --}}
+                    <div class="modal fade" id="centralModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div id="sub-notification" class="modal-content">
+                                <div class="modal-body py-5">
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                    <p>Thank you for Your Request. Your request is waiting for our nurse approval.</p>
+                                    <p>Please wait some time or check back later.</p>
+                                    @foreach ($userVideoRequestDetails as $videoRequest)
+                                        <a href="{{$videoRequest->meet_link}}" target="_blank" type="button" class="btn btn-info">Meet Link</a>
+                                    @endforeach
+                                    <button type="button" class="btn btn-danger" id="submit" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="vehicles">
-        <div class="container">
+        <div class="container-fluid">
             <h1>Personal Details</h1>
             <div class="row vehicle-type">
                 <a id="car" type="button" class="btn btn-default">Basic Info</a>
@@ -264,7 +300,7 @@ table td{
                        <table class="table table-user-information">
                         <tbody>
                             <tr>
-                                <td>User Id</td>
+                                <td>Nurse Id</td>
                                 <td>{{$nurse->id}}</td>
                             </tr>
                             <tr>
@@ -326,11 +362,17 @@ table td{
         </div>
     </div>
 </div>
+@empty
+    <div>Data not found</div>
+@endforelse
 @endsection
-@section('scripts')
 
+@section('scripts')
 <script>
     $(document).ready(function () {
+        @if (session()->has('video'))
+            $("#centralModal").modal("toggle");
+        @endif
         $('#car').on('click',function () {
             $('.car').show();
             $('.bus').hide();

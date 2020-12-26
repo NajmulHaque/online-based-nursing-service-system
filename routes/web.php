@@ -21,6 +21,8 @@ Route::get('/nurse-dashboard/{id}','PageController@nurseProfile')->name('eVendor
 Route::get('/nurse/hired/{id}','HomeController@nurseHire')->name('nurse.hired');
 Route::get('/nurse/user-request/{id}', 'HomeController@userNurseRequest')->name('user_nurse_request');
 Route::get('/nurse/user-request-accept/{id}', 'HomeController@userRequestAccept')->name('nurse_request_accept');
+Route::get('/nurse/user-video-request/{id}', 'HomeController@userVideoRequest')->name('user_video_request');
+Route::get('/nurse/uservideocall-request-list/{id}','HomeController@userVideocallRequestList')->name('user_videocall_request_list');
 
 
 // Authentication Routes...

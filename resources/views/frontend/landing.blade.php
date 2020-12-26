@@ -42,7 +42,6 @@
                         system. Basically this idea is about helping the unemployed nurse and some people who are
                         looking for private nurse service.
                     </p>
-                    <a href="#" class="btn-default btn1">request care now</a>
                 </div>
             </div>
         </div>
@@ -56,7 +55,7 @@
                     <div class="col-sm-4">
                         <div class="title minheight1">
                             <div class="txt1">Professional In-Home Care</div>
-                            <div class="txt2">Online Nursing Service</div>
+                            <div class="txt1">Online Nursing Service</div>
                             <div class="txt3">the best and most comprehensive
                                 hospice care services</div>
                         </div>
@@ -79,26 +78,22 @@
 
     <div class="get_wrapper">
         <div class="container">
-            <div class="col-sm-4">
+            <div class="col-sm-4 text-center">
                 <a href="#">
                     <i class="fa fa-envelope-o"></i>
                     <span class="txt1">Get Quote</span>
-                    <span class="txt2">Donec consequat, purus non interdum ...</span>
                 </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 text-center">
                 <a href="#">
                     <i class="fa fa-calendar"></i>
                     <span class="txt1">Scheduling</span>
-                    <span class="txt2">Vestibulum eu nunc ac erat placerat rhoncus et id eros. Curabitur risus sem,
-                        pellentesque a justo ac, rutrum placerat ipsum.</span>
                 </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 text-center">
                 <a href="#">
                     <i class="fa fa-user-md"></i>
                     <span class="txt1">Career</span>
-                    <span class="txt2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
                 </a>
             </div>
         </div>

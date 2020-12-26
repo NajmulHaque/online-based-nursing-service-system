@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -67,7 +68,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $users = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'gender' => $data['gender'],
@@ -76,5 +77,10 @@ class RegisterController extends Controller
             'nid_pic' => $data['nid_pic'],
             'password' => Hash::make($data['password']),
         ]);
+        DB::table('nurses')->insert([
+            'user_id'   => $users->id,
+            'meet_link' => $data['meet_link'],
+        ]);
+        return $users;
     }
 }

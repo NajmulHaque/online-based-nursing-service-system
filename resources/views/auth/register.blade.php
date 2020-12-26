@@ -83,6 +83,12 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="meet_link" class="col-md-4 col-form-label text-md-right">Paste Your Meet Link:</label>
+                            <div class="col-md-6">
+                                <input type="text" name="meet_link" id="meet_link" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="password"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
