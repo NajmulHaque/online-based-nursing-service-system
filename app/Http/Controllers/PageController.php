@@ -39,9 +39,18 @@ class PageController extends Controller
         $nurseDetails   =   User::join('nurses','nurses.user_id','users.id')
             ->where(['users.id' => $userId])
             ->select('users.*','nurses.status','nurses.client_id')->get();
+        $nurseReview    =   DB::table('nurse_reviews')->where('nurse_id',$userId)->avg('rating');
+        $userReviewCount    =   DB::table('nurse_reviews')->where('nurse_id',$userId)->count();
+        $userNurseReviewCount    =   DB::table('nurse_reviews')->where([
+            'nurse_id'  => $userId,
+            'user_id' => auth()->user()->id,
+            ])->count();
         return view('frontend.nurse-dashboard')->with([
             'nurseDetails' => $nurseDetails,
             'userVideoRequestDetails' => $userVideoRequestDetails,
+            'nurseReview'   =>  $nurseReview,
+            'userReviewCount'   =>  $userReviewCount,
+            'userNurseReviewCount' => $userNurseReviewCount,
         ]);
     }
 }

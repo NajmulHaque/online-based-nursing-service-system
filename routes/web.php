@@ -23,7 +23,7 @@ Route::get('/nurse/user-request/{id}', 'HomeController@userNurseRequest')->name(
 Route::get('/nurse/user-request-accept/{id}', 'HomeController@userRequestAccept')->name('nurse_request_accept');
 Route::get('/nurse/user-video-request/{id}', 'HomeController@userVideoRequest')->name('user_video_request');
 Route::get('/nurse/uservideocall-request-list/{id}','HomeController@userVideocallRequestList')->name('user_videocall_request_list');
-
+Route::post('/nurse/nurse_rating/{id}','HomeController@nurseRating')->name('nurse_rating');
 
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

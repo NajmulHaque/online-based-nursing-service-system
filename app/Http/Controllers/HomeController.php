@@ -45,14 +45,16 @@ class HomeController extends Controller
             ]);
         } else{
             $nurseStatus   =   DB::table('nurses')->where(['user_id' => $id,'status' => 'Pending'])->select('status')->get();
+            $videoRequest   =   DB::table('nurses')->where(['user_id' => $id])->select('video_request')->get();
             $videoRequestStatus   =   DB::table('nurses')->where(['user_id' => $id,'video_request' => 'requested'])->select('video_request')->get();
             $clientId   =   DB::table('nurses')->where('user_id', $id)->select('client_id')->get();
             $nurseStatusCount    =   $nurseStatus->count(); 
             $videoRequestStatusCount = $videoRequestStatus->count();
+            // dd($videoRequest);
             return view('frontend.nurse-profile')->with([
                 'user'   =>   $user,
                 'nurseStatusCount' => $nurseStatusCount,
-                'videoRequestStatus' => $videoRequestStatus,
+                'videoRequest' => $videoRequest,
                 'videoRequestStatusCount' => $videoRequestStatusCount,
                 'clientId' =>   $clientId,
             ]);
@@ -95,7 +97,15 @@ class HomeController extends Controller
             'nurses.client_id' => $clientId,
             'nurses.video_Request'  => 'requested'
             ])->select('users.*','nurses.video_request','nurses.id as request_id', 'nurses.meet_link')->get();
-        // dd($userVideoRequestDetails->toArray());
         return view('frontend.user-videocall-request-list',compact('userVideoRequestDetails'));
+    }
+    public function nurseRating(Request $request, $nurseId)
+    {
+        DB::table('nurse_reviews')->insert([
+            'user_id'   =>  auth()->user()->id,
+            'nurse_id'   =>  $nurseId,
+            'rating'   =>  $request->rating,
+        ]);
+        return redirect()->back()->with('message','Your rating is received. Thank your for your Feedback');
     }
 }

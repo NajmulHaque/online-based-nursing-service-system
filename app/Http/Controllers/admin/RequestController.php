@@ -51,16 +51,18 @@ class RequestController extends Controller
             return view('frontend.user-profile')->with([
                 'user'   =>   $user,    
             ]);
-        } else{
+        } elseif($user->role_id == 2){
             $nurseStatus   =   DB::table('nurses')->where(['user_id' => $id,'status' => 'Pending'])->select('status')->get();
+            $videoRequest   =   DB::table('nurses')->where(['user_id' => $id])->select('video_request')->get();
             $videoRequestStatus   =   DB::table('nurses')->where(['user_id' => $id,'video_request' => 'requested'])->select('video_request')->get();
             $clientId   =   DB::table('nurses')->where('user_id', $id)->select('client_id')->get();
             $nurseStatusCount    =   $nurseStatus->count(); 
             $videoRequestStatusCount = $videoRequestStatus->count();
+            // dd($videoRequest);
             return view('frontend.nurse-profile')->with([
                 'user'   =>   $user,
                 'nurseStatusCount' => $nurseStatusCount,
-                'videoRequestStatus' => $videoRequestStatus,
+                'videoRequest' => $videoRequest,
                 'videoRequestStatusCount' => $videoRequestStatusCount,
                 'clientId' =>   $clientId,
             ]);

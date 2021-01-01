@@ -72,8 +72,8 @@
                                     @endif
                                 @endforeach
                                <span class="badge badge-light request-count">{{$nurseStatusCount}}</span> 
-                               @foreach ($videoRequestStatus as $request)
-                                   @if ($request->video_request != Null)
+                               @foreach ($videoRequest as $request)
+                                   @if ($request->video_request)
                                     <a href="{{ route('user_videocall_request_list',$client->client_id) }}" class="btn">
                                         <i class="fa fa-video-camera" style="font-size: 25px"></i> 
                                     </a>
