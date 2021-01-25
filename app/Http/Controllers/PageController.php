@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use phpDocumentor\Reflection\Types\Null_;
 
 class PageController extends Controller
 {
@@ -15,7 +16,9 @@ class PageController extends Controller
     public function circular()
     {
         $nurseDetails   =   User::join('nurses','nurses.user_id','users.id')
-            ->where(['users.role_id' => 2])
+            ->where([
+                'users.role_id' => 2,
+                ])->whereNotNull('users.approved_at')
             ->select('users.*','nurses.status')->get();
         return view('frontend.circular-feed')->with([
             'nurseDetails'  =>  $nurseDetails,

@@ -74,7 +74,7 @@ class HomeController extends Controller
             ->update([
                 'status' => 'Hired',
             ]);  
-        return redirect()->back()->with('message','You Accept Request successfully');
+        return redirect()->back()->with('message','You Accept Request successfully Done.');
     }
     public function userVideoRequest($nurseId)
     {
@@ -105,6 +105,8 @@ class HomeController extends Controller
             'user_id'   =>  auth()->user()->id,
             'nurse_id'   =>  $nurseId,
             'rating'   =>  $request->rating,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         return redirect()->back()->with('message','Your rating is received. Thank your for your Feedback');
     }

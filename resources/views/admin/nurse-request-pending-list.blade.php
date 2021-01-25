@@ -8,7 +8,7 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-md-6">
-                                <p class="text-left">Users List to Approve</p>
+                                <p class="text-left">Users List to Approve </p>
                             </div>
                             <div class="col-md-6 text-right">
                                 <a href="/admin/dashboard" class=" btn btn-info">Back</a>
